@@ -3,6 +3,7 @@ package com.example.android.newgestures;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,22 +16,18 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     // object from the class that will detect gestures
     private GestureDetectorCompat gestureDetector;
 
-    private TextView resultsTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Button tapButton = (Button) findViewById(R.id.tapButton);
-        resultsTextView = (TextView) findViewById(R.id.resultsTextView);
 
         // creates and sets the onClickListener for the button in Java
         tapButton.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v){
-                        TextView LocalresultsTextView = (TextView) findViewById(R.id.resultsTextView);
-                        LocalresultsTextView.setText("You Tapped That!");
+                        Log.i("Event", "onClick");
                     }
                 }
         );
@@ -49,53 +46,53 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
     @Override
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        resultsTextView.setText("onSingleTapConfirmed");
+        Log.i("Event", "onSingleTapConfirmed");
         return true;
     }
 
     @Override
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        resultsTextView.setText("onDoubleTap");
+        Log.i("Event", "onDoubleTap");
         return true;
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        resultsTextView.setText("onDoubleTapEvent");
+        Log.i("Event", "onDoubleTapEvent");
         return true;
     }
 
     @Override
     public boolean onDown(MotionEvent motionEvent) {
-        resultsTextView.setText("onDown");
+        Log.i("Event", "onDown");
         return true;
     }
 
     @Override
     public void onShowPress(MotionEvent motionEvent) {
-        resultsTextView.setText("onShowPress");
+        Log.i("Event", "onShowPress");
     }
 
     @Override
     public boolean onSingleTapUp(MotionEvent motionEvent) {
-        resultsTextView.setText("onSingleTapUp");
+        Log.i("Event", "onSingleTapUp");
         return true;
     }
 
     @Override
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        resultsTextView.setText("onScroll");
+        Log.i("Event", "onScroll");
         return true;
     }
 
     @Override
     public void onLongPress(MotionEvent motionEvent) {
-        resultsTextView.setText("onLongPress");
+        Log.i("Event", "onLongPress");
     }
 
     @Override
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        resultsTextView.setText("onFling");
+        Log.i("Event", "onFling");
         return true;
     }
 
